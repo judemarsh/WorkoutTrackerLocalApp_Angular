@@ -1,0 +1,30 @@
+<div></div>
+<form class="form-horizontal">
+  <div class="form-group">
+    <div class="col-sm-12">
+      <input type="text" class="form-control" id="searchWorkout"  name="searchWorkout" [(ngModel)]="searchWorkout" placeholder="Search">
+    </div>
+  </div>
+  <div class="workoutRow well" *ngIf="workoutList == null || workoutList.length == 0">
+    <span class="bg-warning text-center">No Workout found!!</span>
+  </div>
+  <div *ngIf="workoutList != null && workoutList.length > 0">
+    <div class="workoutRow well" *ngFor="let workoutObj of workoutList | workoutFilter:searchWorkout">
+      <span class="col-sm-8">{{ workoutObj.workoutTitle}}</span> 
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary" (click)="editWorkout(workoutObj.workoutId)">
+          <span class="glyphicon glyphicon-edit"></span> Edit
+        </button>
+        <button type="button" class="btn btn-primary" (click)="deleteWorkout(workoutObj)">
+            <span class="glyphicon glyphicon-remove-circle"></span> Delete
+        </button>
+        <button type="button" class="btn btn-primary" (click)="startWorkoutActive(workoutObj)" [disabled]="workoutObj.hasStarted">
+            <span class="glyphicon glyphicon-play"></span> Start
+        </button>
+        <button type="button" class="btn btn-primary" (click)="endWorkoutActive(workoutObj)" [disabled]="!workoutObj.hasStarted">
+            <span class="glyphicon glyphicon-stop"></span> End
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

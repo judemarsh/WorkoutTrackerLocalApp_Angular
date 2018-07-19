@@ -1,0 +1,16 @@
+<form>
+  <div mat-dialog-content>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="workoutTitle">Title:</label>
+      <span class="col-sm-10">
+        <input type="text" class="form-control" id="categoryName" name="categoryName" [(ngModel)]="categoryObj.categoryName">
+      </span>
+    </div>
+  </div>
+  <div mat-dialog-actions>
+    <div class="btn-group">
+      <button type="submit" class="btn btn-default update" (click)="updateCategory()">Update</button>
+      <button type="submit" class="btn btn-default cancel" (click)="cancel()">Cancel</button>
+    </div>
+  </div>
+</form>

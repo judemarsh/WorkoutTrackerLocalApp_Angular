@@ -1,0 +1,18 @@
+<div class="well">
+  Workout Time of Day : {{reportObj.workoutTimeOfDay}}
+</div>
+<div class="well">
+  Workout Time of Week : {{reportObj.workoutTimeOfWeek}}
+</div>
+<div class="well">
+  Workout Time of Month : {{reportObj.workoutTimeOfMonth}}
+</div>
+<div class="chart-center">
+  <fusioncharts
+    [width]="width"
+    [height]="height"
+    [type]="type"
+    [dataFormat]="dataFormat"
+    [dataSource]="caloriesWeekChartData">
+  </fusioncharts>
+</div>
